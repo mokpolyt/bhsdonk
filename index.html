@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kuis Bahasa Indonesia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FBF1F5; --card:#FFFFFF; --ink:#3A1730; --soft:#8A5B78;
+  --line:#F0DDE9; --brand:#F2761C; --brand2:#D6249F;
+  --ok:#17875A; --okbg:#E6F5EE; --no:#C7402F; --nobg:#FCEBE8;
+  --radius:14px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper); color:var(--ink);
+  font-family:'Nunito',system-ui,-apple-system,Segoe UI,sans-serif;
+  font-size:17px; line-height:1.6; -webkit-text-size-adjust:100%;
+}
+.wrap{max-width:760px;margin:0 auto;padding:0 10px 64px}
+header{
+  background:linear-gradient(135deg,#F2761C 0%,#EF4D6E 50%,#D6249F 100%);
+  color:#fff;padding:30px 18px 26px;margin:0 -10px 18px;
+  border-radius:0 0 22px 22px;
+}
+header h1{font-family:'Baloo 2',cursive;font-size:28px;line-height:1.15;margin:0 0 6px;font-weight:800}
+header p{margin:0;opacity:.92;font-size:15px}
+.bab{
+  font-family:'Baloo 2',cursive;font-weight:700;font-size:20px;
+  margin:26px 0 10px;padding:10px 14px;background:#FCE3EF;
+  border-left:6px solid var(--brand2);border-radius:10px;
+}
+.info{
+  background:#FFF3E8;border:1px solid #F6D9BE;border-radius:var(--radius);
+  padding:14px 16px;margin-bottom:12px;
+}
+.info h4{margin:0 0 6px;font-family:'Baloo 2',cursive;font-size:16px;color:#B14E0A}
+.info p{margin:0}
+table.tabel{width:100%;border-collapse:collapse;margin-top:4px}
+table.tabel th,table.tabel td{border:1px solid #F0C89E;padding:8px 10px;text-align:left;font-size:15px}
+table.tabel th{background:#FBDDBE;font-family:'Baloo 2',cursive;font-weight:700}
+.q{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:14px 14px 10px;margin-bottom:12px;
+}
+.q h3{display:flex;gap:9px;margin:0 0 4px;font-size:17px;font-weight:700;line-height:1.45}
+.num{
+  flex:0 0 27px;height:27px;background:var(--brand2);color:#fff;border-radius:8px;
+  display:grid;place-items:center;font-size:14px;font-family:'Baloo 2',cursive;margin-top:1px;
+}
+.cerita{background:#FBF0F6;border:1px dashed var(--line);border-radius:10px;padding:9px 12px;margin:8px 0 4px;font-style:italic;color:var(--soft)}
+label{
+  display:flex;gap:9px;align-items:flex-start;padding:8px 10px;margin:5px 0;
+  border:1px solid var(--line);border-radius:10px;cursor:pointer;background:#fff;
+}
+label:has(input:checked){border-color:var(--brand2);background:#FDEFF7}
+input[type=radio]{margin:5px 0 0;accent-color:var(--brand2);width:18px;height:18px;flex:0 0 auto}
+.opt{font-weight:600;color:var(--soft);flex:0 0 auto}
+.benar{border-color:var(--ok)!important;background:var(--okbg)!important}
+.salah{border-color:var(--no)!important;background:var(--nobg)!important}
+.tanda{margin-left:auto;font-weight:700;font-size:13px;font-family:'Baloo 2',cursive}
+.benar .tanda{color:var(--ok)}
+.salah .tanda{color:var(--no)}
+.koreksi{margin:8px 0 4px;padding:9px 12px;border-radius:10px;font-size:15px;font-weight:600;display:none}
+.koreksi.show{display:block}
+.koreksi.k-salah{background:var(--nobg);color:var(--no)}
+.koreksi.k-benar{background:var(--okbg);color:var(--ok)}
+.koreksi.k-kosong{background:#FFF6E0;color:#8A6410}
+.cta{
+  display:block;width:100%;margin:22px 0 0;padding:16px;border:0;border-radius:14px;
+  color:#fff;font-family:'Baloo 2',cursive;font-size:19px;font-weight:800;cursor:pointer;
+  background:linear-gradient(90deg,#F2761C,#D6249F,#F2761C);
+  background-size:220% 100%;animation:geser 3s linear infinite;
+}
+.cta.ghost{background:none;border:2px solid var(--brand2);color:var(--brand2);animation:none;font-size:17px;padding:13px;margin-top:10px}
+@keyframes geser{0%{background-position:0% 0}100%{background-position:-220% 0}}
+@media (prefers-reduced-motion:reduce){.cta{animation:none}}
+#skor{
+  display:none;background:var(--card);border:1px solid var(--line);border-radius:18px;
+  padding:22px 16px;margin:22px 0 0;text-align:center;
+}
+#skor.show{display:block}
+#skor .angka{font-family:'Baloo 2',cursive;font-size:52px;font-weight:800;color:var(--brand2);line-height:1}
+#skor .kecil{color:var(--soft);font-size:15px;margin:2px 0 10px}
+#skor .pesan{font-weight:700;font-size:18px}
+.naga-wrap{display:flex;justify-content:center;padding:6px 0 2px}
+.naga{font-size:44px;display:inline-block;animation:goyang 1.1s ease-in-out infinite;transform-origin:70% 90%}
+@keyframes goyang{
+  0%,100%{transform:rotate(-14deg) translateY(0)}
+  25%{transform:rotate(10deg) translateY(-6px)}
+  50%{transform:rotate(-8deg) translateY(0)}
+  75%{transform:rotate(14deg) translateY(-6px)}
+}
+@media (prefers-reduced-motion:reduce){.naga{animation:none}}
+.ikan-wrap{position:relative;height:120px;margin:6px 0 2px}
+.ikan{position:absolute;top:50%;left:50%;font-size:26px;animation:muter 6s linear infinite;transform-origin:0 0}
+@keyframes muter{from{transform:rotate(0deg) translateX(52px) rotate(0deg)}to{transform:rotate(360deg) translateX(52px) rotate(-360deg)}}
+@media (prefers-reduced-motion:reduce){.ikan{animation:none}}
+.bar{height:12px;background:#F5E3EE;border-radius:99px;overflow:hidden;margin:14px 0 4px}
+.bar span{display:block;height:100%;background:linear-gradient(90deg,#F2761C,#D6249F);border-radius:99px;width:0;transition:width .6s ease}
+:focus-visible{outline:3px solid #F4A63A;outline-offset:2px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Kuis Bahasa Indonesia</h1>
+  <p>20 soal pilihan ganda. Pilih satu jawaban, lalu klik Periksa jawaban.</p>
+</header>
+
+<main id="soal"></main>
+
+<button class="cta" id="cek">Periksa jawaban</button>
+
+<div id="skor">
+  <div class="angka"><span id="nilai">0</span></div>
+  <div class="kecil"><span id="betul">0</span> benar dari 20 soal</div>
+  <div class="bar"><span id="isi"></span></div>
+  <p class="pesan" id="pesan"></p>
+  <button class="cta ghost" id="ulang">Kerjakan lagi</button>
+</div>
+</div>
+
+<script>
+const data=[
+{t:"Rani mendapat hadiah dari ayahnya. Rani tersenyum dan melompat kegirangan.",t2:"Perasaan Rani adalah ....",o:["sedih","marah","senang","kecewa"],k:2},
+{t:"Budi ingin bermain bersama teman-temannya. Namun, hujan turun sangat deras sehingga ia tidak bisa keluar rumah.",t2:"Perasaan Budi kemungkinan adalah ....",o:["kecewa","senang","bangga","tenang"],k:0},
+{t:"Sinta melihat temannya menangis karena pensil kesayangannya hilang. Sebaiknya Sinta ....",o:["menertawakannya","menghiburnya","meninggalkannya","memarahinya"],k:1},
+{t:"Adi merasa sangat marah karena mainannya rusak. Cara yang tepat untuk mengelola emosi adalah ....",o:["berteriak sekeras-kerasnya","melempar mainan","menarik napas dan menenangkan diri","memukul teman"],k:2},
+{t:"Kalimat berikut yang menggunakan tanda baca dengan tepat adalah ....",o:["Ibu memasak nasi?","Ayah membaca koran.","Siti pergi ke sekolah!","Adik sedang tidur!"],k:1},
+{t:"Tanda baca yang tepat untuk melengkapi kalimat berikut adalah ....",c:"Siapa nama adikmu ....",o:[".",",","!","?"],k:3},
+{t:"Kalimat yang tepat penggunaan tanda bacanya adalah ....",o:["Wah, indah sekali pemandangan ini!","Wah. indah sekali pemandangan ini?","Wah? indah sekali pemandangan ini.","Wah, indah sekali pemandangan ini."],k:0},
+{t:"Kalimat yang menunjukkan rasa terkejut adalah ....",o:["Di mana rumahmu?","Ibu membeli sayur.","Aduh, kakiku sakit!","Rina sedang membaca buku."],k:2},
+{t:"Manakah penulisan huruf kapital yang benar?",o:["saya tinggal di yogyakarta.","Saya tinggal di yogyakarta.","Saya tinggal di Yogyakarta.","saya tinggal di Yogyakarta."],k:2},
+{t:"Kalimat yang menggunakan huruf kapital pada nama tempat dengan benar adalah ....",o:["Kami berlibur ke pantai parangtritis.","Kami berlibur ke Pantai Parangtritis.","Kami berlibur ke pantai Parangtritis.","kami berlibur ke Pantai parangtritis."],k:1},
+{t:"Penulisan nama bulan yang benar terdapat pada kalimat ....",o:["Ulang tahunku pada bulan januari.","Ulang tahunku pada Bulan Januari.","Ulang tahunku pada bulan Januari.","ulang tahunku pada bulan Januari."],k:2},
+{t:"Kalimat berikut yang penggunaan huruf kapitalnya benar adalah ....",o:["Pada hari minggu, kami pergi ke Solo.","Pada Hari Minggu, kami pergi ke solo.","Pada hari Minggu, kami pergi ke Solo.","pada hari Minggu, kami pergi ke Solo."],k:2},
+{info:"table",title:"Bacalah tabel berikut untuk menjawab soal nomor 13\u201314!",rows:[["Andi","3 buku"],["Beni","5 buku"],["Citra","2 buku"],["Dinda","4 buku"]]},
+{t:"Siapakah yang membaca buku paling banyak?",o:["Andi","Beni","Citra","Dinda"],k:1},
+{t:"Berapa buku yang dibaca Citra?",o:["2 buku","3 buku","4 buku","5 buku"],k:0},
+{info:"text",title:"Pergi ke Perpustakaan",text:"Setiap hari Rabu, siswa kelas 2 pergi ke perpustakaan. Mereka membaca buku dengan tenang. Setelah selesai membaca, mereka mengembalikan buku ke tempat semula. Lani memilih buku tentang hewan karena ia sangat menyukai hewan."},
+{t:"Kapan siswa kelas 2 pergi ke perpustakaan?",o:["Senin","Selasa","Rabu","Jumat"],k:2},
+{t:"Mengapa Lani memilih buku tentang hewan?",o:["Karena bukunya tipis.","Karena ia menyukai hewan.","Karena disuruh temannya.","Karena perpustakaan sepi."],k:1},
+{t:"Perhatikan kalimat berikut!",c:"Ayah mencuci mobil.",t2:"Objek pada kalimat tersebut adalah ....",o:["Ayah","mencuci","mobil","Ayah mencuci"],k:2},
+{t:"Perhatikan kalimat berikut!",c:"Dina membaca buku.",t2:"Predikat pada kalimat tersebut adalah ....",o:["Dina","membaca","buku","Dina membaca"],k:1},
+{t:"Perhatikan kalimat berikut!",c:"Kakak menyiram bunga.",t2:"Subjek pada kalimat tersebut adalah ....",o:["Kakak","menyiram","bunga","menyiram bunga"],k:0},
+{t:"Kalimat yang memiliki pola Subjek\u2013Predikat\u2013Objek (S-P-O) adalah ....",o:["Adik tidur.","Ibu memasak nasi.","Ayah di rumah.","Budi sangat rajin."],k:1}
+];
+const HRF=["A","B","C","D"];
+const soalEl=document.getElementById('soal');
+let n=0, daftar=[];
+data.forEach(d=>{
+  if(d.bab){soalEl.insertAdjacentHTML('beforeend',`<h2 class="bab">${d.bab}</h2>`);return;}
+  if(d.info==='table'){
+    const baris=d.rows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join('');
+    soalEl.insertAdjacentHTML('beforeend',
+      `<div class="info"><h4>${d.title}</h4>
+       <table class="tabel"><thead><tr><th>Nama</th><th>Buku yang Dibaca</th></tr></thead><tbody>${baris}</tbody></table></div>`);
+    return;
+  }
+  if(d.info==='text'){
+    soalEl.insertAdjacentHTML('beforeend',
+      `<div class="info"><h4>${d.title}</h4><p>${d.text}</p></div>`);
+    return;
+  }
+  n++; const i=n; daftar.push({i,k:d.k});
+  const opsi=d.o.map((o,j)=>`<label id="l${i}_${j}"><input type="radio" name="q${i}" value="${j}"><span class="opt">${HRF[j]}.</span><span>${o}</span></label>`).join('');
+  soalEl.insertAdjacentHTML('beforeend',
+    `<section class="q" id="q${i}">
+      <h3><span class="num">${i}</span><span>${d.t}</span></h3>
+      ${d.c?`<p class="cerita">${d.c.replace(/\n/g,'<br>')}</p>${d.t2?`<p style="margin:4px 0 2px;font-weight:700">${d.t2}</p>`:''}`:(d.t2?`<p style="margin:4px 0 2px;font-weight:700">${d.t2}</p>`:'')}
+      ${opsi}
+      <p class="koreksi" id="k${i}"></p>
+    </section>`);
+  if(i===11){
+    soalEl.insertAdjacentHTML('beforeend','<div class="naga-wrap"><span class="naga">🐉</span></div>');
+  }
+  if(i===18){
+    const ikan=Array.from({length:6},(_,idx)=>`<span class="ikan" style="animation-delay:${-idx}s">🐟</span>`).join('');
+    soalEl.insertAdjacentHTML('beforeend',`<div class="ikan-wrap">${ikan}</div>`);
+  }
+});
+
+document.getElementById('cek').addEventListener('click',()=>{
+  let benar=0;
+  daftar.forEach(({i,k})=>{
+    const pilih=document.querySelector(`input[name="q${i}"]:checked`);
+    document.querySelectorAll(`#q${i} label`).forEach(l=>{l.classList.remove('benar','salah');const s=l.querySelector('.tanda');if(s)s.remove();});
+    const kor=document.getElementById('k'+i); kor.className='koreksi show';
+    const lb=document.getElementById(`l${i}_${k}`);
+    if(pilih && +pilih.value===k){
+      benar++; lb.classList.add('benar'); lb.insertAdjacentHTML('beforeend','<span class="tanda">Benar</span>');
+      kor.classList.add('k-benar'); kor.textContent='Tepat sekali!';
+    }else{
+      lb.classList.add('benar'); lb.insertAdjacentHTML('beforeend','<span class="tanda">Jawaban benar</span>');
+      if(pilih){
+        const ls=document.getElementById(`l${i}_${pilih.value}`);
+        ls.classList.add('salah'); ls.insertAdjacentHTML('beforeend','<span class="tanda">Jawabanmu</span>');
+        kor.classList.add('k-salah');
+      }else{kor.classList.add('k-kosong');}
+      const soalPG=data.filter(d=>!d.bab && !d.info);
+      kor.textContent=(pilih?'Jawaban yang benar: ':'Belum dijawab. Jawaban yang benar: ')+HRF[k]+'. '+soalPG[i-1].o[k];
+    }
+  });
+  const nilai=benar*5;
+  document.getElementById('nilai').textContent=nilai;
+  document.getElementById('betul').textContent=benar;
+  document.getElementById('isi').style.width=nilai+'%';
+  document.getElementById('pesan').textContent=
+    nilai===100?'Sempurna! Semua jawaban benar.':
+    nilai>=80?'Bagus sekali, tinggal sedikit lagi.':
+    nilai>=60?'Sudah lumayan. Pelajari lagi soal yang salah, ya.':
+    'Ayo pelajari lagi bagian yang masih salah.';
+  const s=document.getElementById('skor'); s.classList.add('show');
+  s.scrollIntoView({behavior:'smooth',block:'center'});
+});
+
+document.getElementById('ulang').addEventListener('click',()=>{
+  document.querySelectorAll('input[type=radio]').forEach(r=>r.checked=false);
+  document.querySelectorAll('label').forEach(l=>{l.classList.remove('benar','salah');const s=l.querySelector('.tanda');if(s)s.remove();});
+  document.querySelectorAll('.koreksi').forEach(k=>{k.className='koreksi';k.textContent='';});
+  document.getElementById('skor').classList.remove('show');
+  window.scrollTo({top:0,behavior:'smooth'});
+});
+</script>
+</body>
+</html>
