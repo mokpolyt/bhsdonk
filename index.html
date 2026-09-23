@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kuis Bahasa Inggris - Kelas 2 SD</title>
+<title>Kuis Bahasa Inggris - Kelas 2 SD (Semester Ganjil)</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -217,7 +217,7 @@
 <div class="container">
   <div class="header">
     <h1>📚 Kuis Bahasa Inggris</h1>
-    <p>Kelas 2 SD — Chapter 1-4 (30 Soal)</p>
+    <p>Kelas 2 SD — Semester Ganjil, Chapter 1-5 (30 Soal)</p>
   </div>
 
   <div class="result-card" id="resultCard">
@@ -236,36 +236,36 @@
 
 <script>
 const questions = [
-  {q:"What fruit is this? 🍎", opts:{A:"Apple",B:"Mango",C:"Banana",D:"Orange"}, ans:"A"},
-  {q:'"I like ____." 🥭', opts:{A:"mangoes",B:"pens",C:"tables",D:"chairs"}, ans:"A"},
-  {q:"Which one is a fruit?", opts:{A:"Pencil",B:"Chair",C:"Banana",D:"Ruler"}, ans:"C"},
-  {q:'"I like apples." Is the sentence true or false if the picture shows an apple?', opts:{A:"True",B:"False",C:"No",D:"Maybe"}, ans:"A"},
-  {q:"Which pronoun is used for yourself?", opts:{A:"You",B:"We",C:"I",D:"They"}, ans:"C"},
-  {q:'"___ like oranges." — talking to your friend.', opts:{A:"I",B:"You",C:"We",D:"He"}, ans:"B"},
-  {q:'"Rina and I like bananas." Which pronoun can replace "Rina and I"?', opts:{A:"I",B:"You",C:"We",D:"He"}, ans:"C"},
-  {q:"Toni likes _____. 🥑", opts:{A:"avocados",B:"pencils",C:"rulers",D:"chairs"}, ans:"A"},
-  {q:'"She ____ apples."', opts:{A:"like",B:"likes",C:"liking",D:"liked"}, ans:"B"},
-  {q:'"I ____ mangoes."', opts:{A:"likes",B:"like",C:"liking",D:"is like"}, ans:"B"},
-  {q:"Which sentence is correct?", opts:{A:"He like bananas.",B:"He likes bananas.",C:"He liking bananas.",D:"He likes banana."}, ans:"B"},
-  {q:'"Siti likes oranges." Which pronoun can replace "Siti"?', opts:{A:"He",B:"We",C:"She",D:"You"}, ans:"C"},
-  {q:'"Budi and Toni like apples." Which pronoun can replace "Budi and Toni"?', opts:{A:"He",B:"She",C:"We",D:"They"}, ans:"D"},
-  {q:"Which sentence is correct?", opts:{A:"She likes mangoes.",B:"She like mangoes.",C:"She liking mangoes.",D:"She likes mango."}, ans:"A"},
-  {q:"What is this? ✏️", opts:{A:"Pencil",B:"Ruler",C:"Book",D:"Bag"}, ans:"A"},
-  {q:"What is this? 📖", opts:{A:"Chair",B:"Book",C:"Pen",D:"Table"}, ans:"B"},
-  {q:"We use a ____ to write.", opts:{A:"chair",B:"pencil",C:"table",D:"bag"}, ans:"B"},
-  {q:"We sit on a _____.", opts:{A:"book",B:"pencil",C:"chair",D:"ruler"}, ans:"C"},
-  {q:'"What is there on the table?" "There is a _____."', opts:{A:"pencil",B:"chairs",C:"students",D:"teachers"}, ans:"A"},
-  {q:"Which one is a classroom object?", opts:{A:"Mango",B:"Banana",C:"Ruler",D:"Orange"}, ans:"C"},
-  {q:"What is this? 🎒", opts:{A:"Bag",B:"Book",C:"Chair",D:"Pen"}, ans:"A"},
-  {q:'"There are three ____."', opts:{A:"pencil",B:"pencils",C:"book",D:"table"}, ans:"B"},
-  {q:"How many? 🔴🔴🔴", opts:{A:"One",B:"Two",C:"Three",D:"Four"}, ans:"C"},
-  {q:"What number comes after 9?", opts:{A:"8",B:"10",C:"11",D:"12"}, ans:"B"},
-  {q:"What number comes before 15?", opts:{A:"13",B:"14",C:"16",D:"17"}, ans:"B"},
-  {q:'"How many pens are there?" 🖊️🖊️🖊️🖊️', opts:{A:"There is one pen.",B:"There are two pens.",C:"There are four pens.",D:"There are five pens."}, ans:"C"},
-  {q:"My father's wife is my _____.", opts:{A:"brother",B:"sister",C:"mother",D:"grandfather"}, ans:"C"},
-  {q:"My mother's son is my _____.", opts:{A:"brother",B:"grandmother",C:"mother",D:"father"}, ans:"A"},
-  {q:"What color is the sun usually drawn as? ☀️", opts:{A:"Blue",B:"Yellow",C:"Black",D:"Green"}, ans:"B"},
-  {q:"What color is grass usually? 🌱", opts:{A:"Red",B:"Purple",C:"Green",D:"Black"}, ans:"C"}
+  {q:"You meet your teacher in the morning. You say …", opts:{A:"Good night",B:"Good morning",C:"Goodbye",D:"See you"}, ans:"B"},
+  {q:'"Hello, my name is Rani." What should you say?', opts:{A:"Goodbye, Rani.",B:"Good night, Rani.",C:"Hello, Rani.",D:"Thank you, Rani."}, ans:"C"},
+  {q:'"What is your name?"', opts:{A:"I am seven years old.",B:"My name is Budi.",C:"I am fine.",D:"Good morning."}, ans:"B"},
+  {q:'"How are you?"', opts:{A:"I am fine, thank you.",B:"My name is Andi.",C:"I am eight.",D:"Goodbye."}, ans:"A"},
+  {q:"You want to leave your classroom. You say …", opts:{A:"Hello",B:"Good morning",C:"Goodbye",D:"Thank you"}, ans:"C"},
+  {q:'"Nice to meet you." The correct response is …', opts:{A:"Nice to meet you, too.",B:"Good night.",C:"I am seven.",D:"See you yesterday."}, ans:"A"},
+  {q:"What number is this? 6", opts:{A:"Five",B:"Six",C:"Seven",D:"Eight"}, ans:"B"},
+  {q:"What number comes after 12?", opts:{A:"10",B:"11",C:"13",D:"14"}, ans:"C"},
+  {q:"What number comes before 20?", opts:{A:"18",B:"19",C:"21",D:"22"}, ans:"B"},
+  {q:'"How old are you?" "I am ____ years old."', opts:{A:"seven",B:"pencil",C:"happy",D:"book"}, ans:"A"},
+  {q:"Dina is 8 years old. Which sentence is correct?", opts:{A:"Dina is eight years old.",B:"Dina are eight years old.",C:"Dina is eighteen years old.",D:"Dina am eight years old."}, ans:"A"},
+  {q:"🟢 🟢 🟢 🟢 🟢 How many circles are there?", opts:{A:"Three",B:"Four",C:"Five",D:"Six"}, ans:"C"},
+  {q:"Which one is a fruit? 🍌", opts:{A:"Banana",B:"Pencil",C:"Chair",D:"Ruler"}, ans:"A"},
+  {q:'"I like ____." 🥭', opts:{A:"mangoes",B:"tables",C:"bags",D:"books"}, ans:"A"},
+  {q:"Which fruit is yellow?", opts:{A:"Apple",B:"Banana",C:"Watermelon",D:"Grape"}, ans:"B"},
+  {q:'"I ____ apples."', opts:{A:"likes",B:"like",C:"liking",D:"am like"}, ans:"B"},
+  {q:'"She ____ bananas."', opts:{A:"like",B:"likes",C:"liking",D:"is like"}, ans:"B"},
+  {q:"Rina likes oranges. Which sentence is correct?", opts:{A:"He likes oranges.",B:"She likes oranges.",C:"They likes oranges.",D:"I likes oranges."}, ans:"B"},
+  {q:'Budi and Siti like mangoes. Which pronoun can replace "Budi and Siti"?', opts:{A:"He",B:"She",C:"They",D:"It"}, ans:"C"},
+  {q:"Which sentence is correct?", opts:{A:"He like apples.",B:"He likes apples.",C:"He liking apples.",D:"He likes apple."}, ans:"B"},
+  {q:"What is this? ✏️", opts:{A:"Pencil",B:"Book",C:"Chair",D:"Bag"}, ans:"A"},
+  {q:"We use a ____ to read. 📖", opts:{A:"pencil",B:"book",C:"chair",D:"ruler"}, ans:"B"},
+  {q:"We sit on a _____.", opts:{A:"table",B:"pencil",C:"chair",D:"book"}, ans:"C"},
+  {q:"We use a ruler to _____.", opts:{A:"eat",B:"sleep",C:"measure",D:"drink"}, ans:"C"},
+  {q:"What is this? 🎒", opts:{A:"Bag",B:"Table",C:"Pencil",D:"Book"}, ans:"A"},
+  {q:'"What is there on the table?" "There is a ____."', opts:{A:"pencil",B:"students",C:"teachers",D:"chairs"}, ans:"A"},
+  {q:"There are three ____ on the table.", opts:{A:"book",B:"books",C:"pencil",D:"ruler"}, ans:"B"},
+  {q:"Which one is NOT a classroom object?", opts:{A:"Pencil",B:"Ruler",C:"Banana",D:"Book"}, ans:"C"},
+  {q:"My father's wife is my _____.", opts:{A:"sister",B:"mother",C:"brother",D:"grandfather"}, ans:"B"},
+  {q:"What color is the grass usually? 🌱", opts:{A:"Red",B:"Blue",C:"Green",D:"Purple"}, ans:"C"}
 ];
 
 const form = document.getElementById('quizForm');
