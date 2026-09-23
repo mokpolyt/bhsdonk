@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kuis Bahasa Inggris - Kelas 2 SD (Semester Ganjil)</title>
+<title>Kuis Bahasa Inggris - Pronouns (Kata Ganti) Kelas 2 SD</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -217,7 +217,7 @@
 <div class="container">
   <div class="header">
     <h1>📚 Kuis Bahasa Inggris</h1>
-    <p>Kelas 2 SD — Semester Ganjil, Chapter 1-5 (30 Soal)</p>
+    <p>Kelas 2 SD — Pronouns / Kata Ganti (12 Soal)</p>
   </div>
 
   <div class="result-card" id="resultCard">
@@ -236,36 +236,18 @@
 
 <script>
 const questions = [
-  {q:"You meet your teacher in the morning. You say …", opts:{A:"Good night",B:"Good morning",C:"Goodbye",D:"See you"}, ans:"B"},
-  {q:'"Hello, my name is Rani." What should you say?', opts:{A:"Goodbye, Rani.",B:"Good night, Rani.",C:"Hello, Rani.",D:"Thank you, Rani."}, ans:"C"},
-  {q:'"What is your name?"', opts:{A:"I am seven years old.",B:"My name is Budi.",C:"I am fine.",D:"Good morning."}, ans:"B"},
-  {q:'"How are you?"', opts:{A:"I am fine, thank you.",B:"My name is Andi.",C:"I am eight.",D:"Goodbye."}, ans:"A"},
-  {q:"You want to leave your classroom. You say …", opts:{A:"Hello",B:"Good morning",C:"Goodbye",D:"Thank you"}, ans:"C"},
-  {q:'"Nice to meet you." The correct response is …', opts:{A:"Nice to meet you, too.",B:"Good night.",C:"I am seven.",D:"See you yesterday."}, ans:"A"},
-  {q:"What number is this? 6", opts:{A:"Five",B:"Six",C:"Seven",D:"Eight"}, ans:"B"},
-  {q:"What number comes after 12?", opts:{A:"10",B:"11",C:"13",D:"14"}, ans:"C"},
-  {q:"What number comes before 20?", opts:{A:"18",B:"19",C:"21",D:"22"}, ans:"B"},
-  {q:'"How old are you?" "I am ____ years old."', opts:{A:"seven",B:"pencil",C:"happy",D:"book"}, ans:"A"},
-  {q:"Dina is 8 years old. Which sentence is correct?", opts:{A:"Dina is eight years old.",B:"Dina are eight years old.",C:"Dina is eighteen years old.",D:"Dina am eight years old."}, ans:"A"},
-  {q:"🟢 🟢 🟢 🟢 🟢 How many circles are there?", opts:{A:"Three",B:"Four",C:"Five",D:"Six"}, ans:"C"},
-  {q:"Which one is a fruit? 🍌", opts:{A:"Banana",B:"Pencil",C:"Chair",D:"Ruler"}, ans:"A"},
-  {q:'"I like ____." 🥭', opts:{A:"mangoes",B:"tables",C:"bags",D:"books"}, ans:"A"},
-  {q:"Which fruit is yellow?", opts:{A:"Apple",B:"Banana",C:"Watermelon",D:"Grape"}, ans:"B"},
-  {q:'"I ____ apples."', opts:{A:"likes",B:"like",C:"liking",D:"am like"}, ans:"B"},
-  {q:'"She ____ bananas."', opts:{A:"like",B:"likes",C:"liking",D:"is like"}, ans:"B"},
-  {q:"Rina likes oranges. Which sentence is correct?", opts:{A:"He likes oranges.",B:"She likes oranges.",C:"They likes oranges.",D:"I likes oranges."}, ans:"B"},
-  {q:'Budi and Siti like mangoes. Which pronoun can replace "Budi and Siti"?', opts:{A:"He",B:"She",C:"They",D:"It"}, ans:"C"},
-  {q:"Which sentence is correct?", opts:{A:"He like apples.",B:"He likes apples.",C:"He liking apples.",D:"He likes apple."}, ans:"B"},
-  {q:"What is this? ✏️", opts:{A:"Pencil",B:"Book",C:"Chair",D:"Bag"}, ans:"A"},
-  {q:"We use a ____ to read. 📖", opts:{A:"pencil",B:"book",C:"chair",D:"ruler"}, ans:"B"},
-  {q:"We sit on a _____.", opts:{A:"table",B:"pencil",C:"chair",D:"book"}, ans:"C"},
-  {q:"We use a ruler to _____.", opts:{A:"eat",B:"sleep",C:"measure",D:"drink"}, ans:"C"},
-  {q:"What is this? 🎒", opts:{A:"Bag",B:"Table",C:"Pencil",D:"Book"}, ans:"A"},
-  {q:'"What is there on the table?" "There is a ____."', opts:{A:"pencil",B:"students",C:"teachers",D:"chairs"}, ans:"A"},
-  {q:"There are three ____ on the table.", opts:{A:"book",B:"books",C:"pencil",D:"ruler"}, ans:"B"},
-  {q:"Which one is NOT a classroom object?", opts:{A:"Pencil",B:"Ruler",C:"Banana",D:"Book"}, ans:"C"},
-  {q:"My father's wife is my _____.", opts:{A:"sister",B:"mother",C:"brother",D:"grandfather"}, ans:"B"},
-  {q:"What color is the grass usually? 🌱", opts:{A:"Red",B:"Blue",C:"Green",D:"Purple"}, ans:"C"}
+  {q:'"Rina is a girl. ___ likes apples."', opts:{A:"He",B:"She",C:"They",D:"We"}, ans:"B"},
+  {q:'"Budi is a boy. ___ likes bananas."', opts:{A:"She",B:"We",C:"He",D:"They"}, ans:"C"},
+  {q:'"My name is Andi. ___ am seven years old."', opts:{A:"He",B:"She",C:"I",D:"They"}, ans:"C"},
+  {q:'"Siti and I are friends. ___ like mangoes."', opts:{A:"We",B:"They",C:"He",D:"She"}, ans:"A"},
+  {q:'"Budi and Rina are students. ___ like English."', opts:{A:"He",B:"She",C:"We",D:"They"}, ans:"D"},
+  {q:"Which pronoun is used for a boy?", opts:{A:"She",B:"He",C:"We",D:"They"}, ans:"B"},
+  {q:"Which pronoun is used for a girl?", opts:{A:"He",B:"They",C:"She",D:"We"}, ans:"C"},
+  {q:'"My friends are happy. ___ are playing."', opts:{A:"It",B:"He",C:"She",D:"They"}, ans:"D"},
+  {q:'"My sister and I like cats. ___ have two cats."', opts:{A:"We",B:"They",C:"He",D:"She"}, ans:"A"},
+  {q:'"Look at the cat! ___ is cute."', opts:{A:"He",B:"She",C:"It",D:"They"}, ans:"C"},
+  {q:'"You and I are classmates. ___ are in Class 2."', opts:{A:"They",B:"We",C:"He",D:"She"}, ans:"B"},
+  {q:'"Doni and Toni are brothers. ___ play football."', opts:{A:"He",B:"She",C:"We",D:"They"}, ans:"D"}
 ];
 
 const form = document.getElementById('quizForm');
